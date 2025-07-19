@@ -83,16 +83,16 @@ class CipherApp:
         filepath = filedialog.askopenfilename()
         if not filepath:
             return
-        
+    
         output_path = filedialog.asksaveasfilename(defaultextension=".enc")
         if not output_path:
             return
-        
+    
         try:
             FileCipher.encrypt_file(filepath, output_path, self.shift_var.get())
-            messagebox.showinfo("Success", "File encrypted successfully")
+            messagebox.showinfo("Success", "File encrypted successfully!")
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to encrypt file: {str(e)}")
+            messagebox.showerror("Error", f"Failed to encrypt file:\n{str(e)}")
     
     def decrypt_file(self):
         filepath = filedialog.askopenfilename()
