@@ -1,11 +1,11 @@
-class CeaserCipher:
+class CaesarCipher:
     def __init__(self, shift=3):
         """
         Initialize the cipher with a shift value
         """
+        self.alphabet = 'abcdefghijklmnopqrstuvwxyz'  
+        self.upper_alphabet = self.alphabet.upper()   
         self.shift = shift
-        self.letter = 'abcdefghijklmnopqrstuvwxyz'
-        self.upper_alphabet = self.alphabet.upper()
     
     def encrypt(self, plaintext):
         """
@@ -14,14 +14,14 @@ class CeaserCipher:
         ciphertext = []
         for char in plaintext:
             if char in self.alphabet:
-                index = (self.aplphabet.index(char) + self.shift) % 26
+                index = (self.alphabet.index(char) + self.shift) % 26  # Fixed typo aplphabet→alphabet
                 ciphertext.append(self.alphabet[index])
             elif char in self.upper_alphabet:
                 index = (self.upper_alphabet.index(char) + self.shift) % 26
                 ciphertext.append(self.upper_alphabet[index])
             else:
                 ciphertext.append(char)
-        return '' .join(ciphertext)
+        return ''.join(ciphertext)  # Removed space between quotes and dot
     
     def decrypt(self, ciphertext):
         """
@@ -37,5 +37,4 @@ class CeaserCipher:
                 plaintext.append(self.upper_alphabet[index])
             else:
                 plaintext.append(char)
-        return '' .join(plaintext)
-    
+        return ''.join(plaintext)  # Removed space between quotes and dot
